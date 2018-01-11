@@ -1,0 +1,23 @@
+{
+  "name": "the-hangman-climbs",
+  "version": "1.0.0",
+  "description": "A hangman command-line game using advanced JavaScript constructor functions.",
+  "main": "hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasapper/the-hangman-CLImbs.git"
+  },
+  "author": "Jason Apfel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasapper/the-hangman-CLImbs/issues"
+  },
+  "homepage": "https://github.com/jasapper/the-hangman-CLImbs#readme",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "inquirer": "^5.0.0"
+  }
+}
