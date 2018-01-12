@@ -29,7 +29,7 @@ var revealedWordLetterCount = 0;
 function gameStartEnd() {
     inquirer.prompt({
         type: "list",
-        message: "Welcome to Hangman Shapes! Please select an option to continue:",
+        message: (chalk.yellow.bgBlue.bold("Welcome to Hangman Shapes!"))+(chalk.yellow(" Please select an option to continue:")),
         choices: ["Play :)", "Exit :("],
         name: "choice"
     })
@@ -46,9 +46,9 @@ function gamePlay(attempts) {
     if (attempts <= maxAttempts && attempts > 0) {
         if (loop === 0) {
             var challengeWord = newChallengeWord.pickNewWord(questionCounter);
-            console.log("Challenge Word: ", newChallengeWord.disguisedWord);
+            console.log(chalk.cyan("Challenge Word: "), chalk.redBright.bold(newChallengeWord.disguisedWord));
             letterCount = newLetter.letterCount(challengeWord);
-            console.log("Challenge Word length: ", letterCount);
+            console.log(chalk.cyan.dim("Challenge Word length: ", letterCount));
 
         } else {
             console.log("Challenge Word: ", newChallengeWord.disguisedWord);
