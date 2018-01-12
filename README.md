@@ -3,6 +3,6 @@ Originally imagined as a mountain climbing term challenge, **"the-hangman-CLImbs
 
 ### Guess the shape in 10 tries (or less)!
 
-Guessing a correct letter does not reduce tries left.
+Guessing a correct letter does not reduce tries left **but guessing the same wrong letter multiple times does**.
 
 Node.js installation is required to run this game. Once cloned/downloaded enter the target directory and run "npm install" to load dependencies followed by "node hangman.js". Enjoy!
