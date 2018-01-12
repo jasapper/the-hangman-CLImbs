@@ -56,9 +56,9 @@ function gamePlay(attempts) {
         inquirer.prompt({
             type: "input",
             name: "userGuess",
-            message: "Guess a letter: "
+            message: (chalk.green("Guess a letter: "))
         }).then(function (guesses) {
-            console.log("you guessed: ", guesses.userGuess);
+            console.log(chalk.magenta("You guessed: ", guesses.userGuess));
             // convert guessed letter to lowercase
             lcaseUserGuess = guesses.userGuess.toLowerCase();
             // convert challenge word to lowercase
@@ -80,8 +80,7 @@ function gamePlay(attempts) {
                     }
                 }
             } else {
-                // Done: if the letter guessed is not in the challenge word,
-                // decrement the number of attempts left
+                // If the letter guessed is not in the challenge word, decrease the number of attempts left
                 attempts--;
                 loop++;
                 revealedWord = newChallengeWord.disguisedWord;
@@ -91,14 +90,14 @@ function gamePlay(attempts) {
                     revealedWordLetterCount = match.length;
                 }
                 unmatchedLetters.push(lcaseUserGuess);
-                console.log("Sorry, that letter (" + lcaseUserGuess + ") is not in the shape you're guessing.");
+                console.log(chalk.redBright("Sorry, that letter (" + lcaseUserGuess + ") is not in the shape you're guessing."));
                 if (attempts < maxAttempts) {
-                    console.log("You have " + attempts + " attempts remaining.");
+                    console.log(chalk.blueBright("You have " + attempts + " attempts remaining."));
                 }
                 if (attempts === 0) {
                     inquirer.prompt({
                         type: "list",
-                        message: "Sorry you did not guess the shape: " + newChallengeWord.storedPick + "\nWould you like to play again?",
+                        message: (chalk.blue.bgRedBright("Sorry you did not guess the shape: " + newChallengeWord.storedPick + "\nWould you like to play again?")),
                         choices: ["Yes", "No"],
                         name: "continue"
                     })
@@ -126,7 +125,7 @@ function gamePlay(attempts) {
                 loop = 0;
                 inquirer.prompt({
                     type: "list",
-                    message: "Congratulations! You guessed the correct shape: " + newChallengeWord.storedPick + "\nWould you like to play again?",
+                    message: (chalk.yellow.bgGreen("Congratulations! You guessed the correct shape: " + newChallengeWord.storedPick + "\nWould you like to play again?")),
                     choices: ["Yes", "No"],
                     name: "continue"
                 })
